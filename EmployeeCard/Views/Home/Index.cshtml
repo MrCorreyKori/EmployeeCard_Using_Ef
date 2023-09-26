@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <title>Employee Table</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Button to trigger the modal form -->
+        <button class="btn btn-primary" id="AddButton" onclick="editEmployee(null)" data-toggle="modal" data-target="#addEmployeeModal">
+            Add Employee
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>
+        </button>
+        <br />
+        <br />
+        <div>
+            <input type="text" id="searchInput" placeholder="Search by name...">
+        </div>
+        <h1>Employee Table</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+                <!-- Add more rows for other employees -->
+            </tbody>
+        </table>
+
+        <!-- Modal for adding a new employee -->
+        <div class="modal right fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- Hidden field for employee ID -->
+                            <input type="hidden" id="employeeId" name="employeeId" value="">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="designation">Designation:</label>
+                                <input type="text" class="form-control" id="designation">
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department:</label>
+                                <input type="text" class="form-control" id="department">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number:</label>
+                                <input type="number" class="form-control" id="phone">
+                            </div>
+                         
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                      
+                        <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
+
+                        <button type="button" class="btn btn-primary" id="saveButton">Save</button>
+                        <button type="button" onclick="" class="btn btn-secondary" id="cancelButton" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="~/js/jsemployee.js"></script>
+
+
+
+</body>
